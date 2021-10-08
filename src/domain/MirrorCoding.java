@@ -1,28 +1,23 @@
 package domain;
 
 public class MirrorCoding implements CodingStrategy {
-
     @Override
-    public String encode(String passwoord){
+    public String encode(String text) {
         String encoded = "";
-        for(char q: passwoord.toCharArray()){
-            encoded += passwoord.charAt(passwoord.length()-1);
-            passwoord = passwoord.substring(passwoord.length()-1);
+        for (char q : text.toCharArray()) {
+            encoded += text.charAt(text.length() - 1);
+            text = text.substring(text.length() - 1);
         }
         return encoded;
-
     }
+
     @Override
-    public String decode(String passwoord){
+    public String decode(String text) {
         String decoded = "";
-        for(char q: passwoord.toCharArray()){
-            decoded += passwoord.charAt(passwoord.length()-1);
-            passwoord = passwoord.substring(passwoord.length()-1);
+        for ( char q : text.toCharArray()) {
+            decoded += text.charAt(text.length() - 1);
+            text = text.substring(text.length() - 1);
         }
         return decoded;
-
     }
-
-
-
 }
