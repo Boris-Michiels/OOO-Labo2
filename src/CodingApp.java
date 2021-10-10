@@ -1,4 +1,3 @@
-import domain.CodingContext;
 import javafx.application.Application;
 import ui.CodingUi;
 

@@ -8,6 +8,10 @@ public class CodingContext {
         return codingStrategy.encode(text);
     }
 
+    public String decode() {
+        return codingStrategy.decode(text);
+    }
+
     public String getText() {
         return text;
     }
@@ -22,6 +26,11 @@ public class CodingContext {
 
     public void setCaesarNumber(int caesarNumber) {
         ((CaesarCoding) codingStrategy).setCaesarNumber(caesarNumber);
+    }
+
+    public void setCaesarNumber(String caesarNumber) {
+        if (caesarNumber != null && !caesarNumber.trim().isEmpty())
+            ((CaesarCoding) codingStrategy).setCaesarNumber(Integer.parseInt(caesarNumber));
     }
 
     public CodingStrategy getCodingStrategy() {

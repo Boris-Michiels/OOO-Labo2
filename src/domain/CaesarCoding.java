@@ -6,24 +6,23 @@ public class CaesarCoding implements CodingStrategy {
 
     @Override
     public String encode(String text) {
-        String encoded = "";
-        for (char c : text.toLowerCase().toCharArray()) {
-            if (alphabet.contains(Character.toString(c))) {
-                encoded += alphabet.charAt((alphabet.indexOf(c) + caesarNumber) % 26);
-            } else encoded += c;
-        }
-        return encoded;
+        return caesar(text, true);
     }
 
     @Override
     public String decode(String text) {
-        String decoded = "";
+        return caesar(text, false);
+    }
+
+    private String caesar(String text, boolean encode) {
+        String caesar = "";
+        int caesarNumber = (encode ? 1 : -1) * this.caesarNumber;
         for (char c : text.toLowerCase().toCharArray()) {
             if (alphabet.contains(Character.toString(c))) {
-                decoded += alphabet.charAt((alphabet.indexOf(c) - caesarNumber) % 26);
-            } else decoded += c;
+                caesar += alphabet.charAt((alphabet.indexOf(c) + 26 + caesarNumber) % 26);
+            } else caesar += c;
         }
-        return decoded;
+        return caesar;
     }
 
     public void setCaesarNumber(int caesarNumber){
@@ -32,5 +31,10 @@ public class CaesarCoding implements CodingStrategy {
 
     public int getCaesarNumber() {
         return this.caesarNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Caesar";
     }
 }
