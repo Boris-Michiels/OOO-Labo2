@@ -1,6 +1,6 @@
 package domain;
 
-public class CaesarCoding implements CodingStrategy{
+public class CaesarCoding implements CodingStrategy {
     private int caesarNumber = 1;
     private final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 

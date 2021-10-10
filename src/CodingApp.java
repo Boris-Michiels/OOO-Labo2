@@ -1,7 +1,9 @@
+import domain.CodingContext;
+import javafx.application.Application;
 import ui.CodingUi;
 
 public class CodingApp {
     public static void main(String[] args) {
-        CodingUi ui = new CodingUi();
+        Application.launch(CodingUi.class);
     }
 }

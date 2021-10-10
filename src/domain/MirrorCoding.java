@@ -4,9 +4,9 @@ public class MirrorCoding implements CodingStrategy {
     @Override
     public String encode(String text) {
         String encoded = "";
-        for (char q : text.toCharArray()) {
+        while (text.length() != 0) {
             encoded += text.charAt(text.length() - 1);
-            text = text.substring(text.length() - 1);
+            text = text.substring(0, text.length() - 1);
         }
         return encoded;
     }
@@ -14,9 +14,9 @@ public class MirrorCoding implements CodingStrategy {
     @Override
     public String decode(String text) {
         String decoded = "";
-        for ( char q : text.toCharArray()) {
+        while (text.length() != 0) {
             decoded += text.charAt(text.length() - 1);
-            text = text.substring(text.length() - 1);
+            text = text.substring(0, text.length() - 1);
         }
         return decoded;
     }

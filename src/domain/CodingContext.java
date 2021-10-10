@@ -4,6 +4,10 @@ public class CodingContext {
     private CodingStrategy codingStrategy;
     private String text;
 
+    public String encode() {
+        return codingStrategy.encode(text);
+    }
+
     public String getText() {
         return text;
     }
