@@ -60,8 +60,12 @@ public class CodingUi extends Application {
                 new MirrorCoding()
         );
         comboBox.getSelectionModel().selectFirst();
+        codingContext.setCodingStrategy(comboBox.getValue());
+        caesarNumber.setText(String.valueOf(codingContext.getCaesarNumber()));
         comboBox.setOnAction(e -> {
+            codingContext.setCodingStrategy(comboBox.getValue());
             if (comboBox.getValue().toString().equals("Caesar")) {
+                caesarNumber.setText(String.valueOf(codingContext.getCaesarNumber()));
                 caesarLabel.setVisible(true);
                 caesarNumber.setVisible(true);
             } else {
@@ -75,15 +79,13 @@ public class CodingUi extends Application {
         Button encode = new Button("Encode");
         Button decode = new Button("Decode");
         encode.setOnAction(e -> {
-            getCodingContext().setText(textInput.getText());
-            codingContext.setCodingStrategy(comboBox.getValue());
             codingContext.setCaesarNumber(caesarNumber.getText());
+            getCodingContext().setText(textInput.getText());
             textOutput.setText(getCodingContext().encode());
         });
         decode.setOnAction(e -> {
-            getCodingContext().setText(textInput.getText());
-            codingContext.setCodingStrategy(comboBox.getValue());
             codingContext.setCaesarNumber(caesarNumber.getText());
+            getCodingContext().setText(textInput.getText());
             textOutput.setText(getCodingContext().decode());
         });
         gridPane.add(encode, 1, 3);
