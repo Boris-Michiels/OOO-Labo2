@@ -50,6 +50,7 @@ public class CodingUi extends Application {
         caesarNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.matches("\\d*")) return;
             caesarNumber.setText(newValue.replaceAll("[^\\d]", ""));
+            codingContext.setCaesarNumber(caesarNumber.getText());
         });
         gridPane.add(caesarLabel, 0, 4);
         gridPane.add(caesarNumber, 1, 4);
@@ -79,12 +80,10 @@ public class CodingUi extends Application {
         Button encode = new Button("Encode");
         Button decode = new Button("Decode");
         encode.setOnAction(e -> {
-            codingContext.setCaesarNumber(caesarNumber.getText());
             getCodingContext().setText(textInput.getText());
             textOutput.setText(getCodingContext().encode());
         });
         decode.setOnAction(e -> {
-            codingContext.setCaesarNumber(caesarNumber.getText());
             getCodingContext().setText(textInput.getText());
             textOutput.setText(getCodingContext().decode());
         });

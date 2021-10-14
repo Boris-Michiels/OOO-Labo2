@@ -12,12 +12,7 @@ public class MirrorCoding implements CodingStrategy {
     }
 
     private String mirror(String text) {
-        String mirror = "";
-        while (text.length() != 0) {
-            mirror += text.charAt(text.length() - 1);
-            text = text.substring(0, text.length() - 1);
-        }
-        return mirror;
+        return new StringBuilder(text).reverse().toString();
     }
 
     @Override
